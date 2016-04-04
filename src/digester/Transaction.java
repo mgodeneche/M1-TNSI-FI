@@ -3,6 +3,9 @@ package digester;
 import java.util.Date;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import utils.DateAdapter;
 
 @XmlRootElement
 public class Transaction {
@@ -29,6 +32,7 @@ public class Transaction {
 		return transactionDate;
 	}
 	@XmlElement(required=true)
+    @XmlJavaTypeAdapter(DateAdapter.class)
 	public void setTransactionDate(Date transactionDate) {
 		this.transactionDate = transactionDate;
 	}

@@ -25,6 +25,11 @@ public class DigesterTest {
 	}
 	
 	@Test
+	public void transactionIdIsSet(){
+		Assert.assertTrue(transaction.getTransactionId()!=0);
+	}	
+	
+	@Test
 	public void transactionDateNotNull(){
 		Assert.assertNotNull(transaction.getTransactionDate());
 	}
@@ -33,21 +38,38 @@ public class DigesterTest {
 	public void typeNotNull(){
 		Assert.assertNotNull(transaction.getType());
 	}
+	@Test
+	public void typeIsSet(){
+		Assert.assertTrue(transaction.getType().length()!=0);
+	}
 	
 	@Test
 	public void amountNotNull(){
 		Assert.assertNotNull(transaction.getAmount());
+	}
+	@Test
+	public void amountIsSet(){
+		Assert.assertTrue(transaction.getAmount()!=0);
 	}
 	
 	@Test
 	public void currencyNotNull(){
 		Assert.assertNotNull(transaction.getCurrency());
 	}
+	@Test
+	public void currencyIsSet(){
+		Assert.assertTrue(transaction.getCurrency().length()!=0);
+	}
 	
 	@Test
 	public void customerIdNotNull(){
 		Assert.assertNotNull(transaction.getCustomerId());
 	}
+	@Test
+	public void customerIdIsSet(){
+		Assert.assertTrue(transaction.getCustomerId()!=0);
+	}
+	
 
 	
 }
