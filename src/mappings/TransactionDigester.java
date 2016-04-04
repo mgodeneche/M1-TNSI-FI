@@ -17,7 +17,7 @@ public class TransactionDigester {
 	
 				Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
 				Transaction transaction = (Transaction) jaxbUnmarshaller.unmarshal(xmlFile);
-				
+				System.out.println(transaction.toString());
 				return transaction;
 			  } catch (JAXBException e) {
 				e.printStackTrace();
