@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<transaction>
+	<transactionID>4</transactionID>
+	<transactionDate>1459764249</transactionDate>
+	<type>debit</type>
+	<clientId>80</clientId>
+	<amount>150,50</amount>
+	<currency>dollars</currency>
+</transaction>
