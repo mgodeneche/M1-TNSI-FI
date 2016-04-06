@@ -1,6 +1,6 @@
-/transaction.xml
-/digester/
-/test/
-/mappings/
-/META-INF/
+/dao/
 /utils/
+/test/
+/services/
+/dto/
+/digester/

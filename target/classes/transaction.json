@@ -1,0 +1,8 @@
+{
+	"transactionId":4,
+	"transactionDate":"2016-04-05T10:40:21Z",
+	"type":"debit",
+	"customerId":80,
+	"amount":150.5,
+	"currency":"dollars"
+}

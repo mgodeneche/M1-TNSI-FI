@@ -3,9 +3,6 @@ package digester;
 import java.util.Date;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import utils.DateAdapter;
 
 @XmlRootElement
 public class Transaction {
@@ -15,7 +12,7 @@ public class Transaction {
 	private String type;
 	private float amount;
 	private String currency;
-	private long CustomerId;
+	private long customerId;
 	
 	
 	
@@ -32,7 +29,6 @@ public class Transaction {
 		return transactionDate;
 	}
 	@XmlElement(required=true)
-    @XmlJavaTypeAdapter(DateAdapter.class)
 	public void setTransactionDate(Date transactionDate) {
 		this.transactionDate = transactionDate;
 	}
@@ -58,18 +54,18 @@ public class Transaction {
 		this.currency = currency;
 	}
 	public long getCustomerId() {
-		return CustomerId;
+		return customerId;
 	}
 	@XmlElement(required=true)
 	public void setCustomerId(long customerId) {
-		CustomerId = customerId;
+		this.customerId = customerId;
 	}
 
 
 	@Override
 	public String toString() {
 		return "Transaction [transactionId=" + transactionId + ", transactionDate=" + transactionDate + ", type=" + type
-				+ ", amount=" + amount + ", currency=" + currency + ", CustomerId=" + CustomerId + "]";
+				+ ", amount=" + amount + ", currency=" + currency + ", customerId=" + customerId + "]";
 	}
 	
 	
