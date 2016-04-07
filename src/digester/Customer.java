@@ -8,6 +8,14 @@ public class Customer {
 	private Account account;
 	
 	
+	
+	public Customer(String firstname, String lastname, long customerId, Account account) {
+		super();
+		this.firstname = firstname;
+		this.lastname = lastname;
+		this.customerId = customerId;
+		this.account = account;
+	}
 	public String getFirstname() {
 		return firstname;
 	}
@@ -32,6 +40,13 @@ public class Customer {
 	public void setAccount(Account account) {
 		this.account = account;
 	}
+	@Override
+	public String toString() {
+		return "Customer [firstname=" + firstname + ", lastname=" + lastname + ", customerId=" + customerId
+				+ ", account=" + account + "]";
+	}
+	
+	
 	
 	
 	

@@ -6,7 +6,7 @@ import digester.Account;
 import digester.Customer;
 import com.mongodb.BasicDBObject;
 
-public class AccountDTO extends BasicDBObject{
+public class AccountDTO extends BasicDBObject implements Serializable{
 
 	/**
 	 * 
@@ -75,6 +75,14 @@ public class AccountDTO extends BasicDBObject{
 	public void setAccountCurrency(String accountCurrency) {
 		this.accountCurrency = accountCurrency;
 	}
+
+	@Override
+	public String toString() {
+		return "AccountDTO [customerFirstName=" + customerFirstName + ", customerLastName=" + customerLastName
+				+ ", customerId=" + customerId + ", IBAN=" + IBAN + ", balance=" + balance + ", accountCurrency="
+				+ accountCurrency + "]";
+	}
+
 	
 	
 	

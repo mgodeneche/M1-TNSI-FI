@@ -7,6 +7,14 @@ public class Account {
 	private String accountCurrency;
 
 
+	
+	public Account(String iBAN, float balance, String accountCurrency) {
+		super();
+		IBAN = iBAN;
+		this.balance = balance;
+		this.accountCurrency = accountCurrency;
+	}
+
 	public float getBalance() {
 		return balance;
 	}
@@ -30,6 +38,15 @@ public class Account {
 	public void setIBAN(String iBAN) {
 		IBAN = iBAN;
 	}
+
+	@Override
+	public String toString() {
+		return "Account [IBAN=" + IBAN + ", balance=" + balance + ", accountCurrency=" + accountCurrency + "]";
+	}
+	
+	
+	
+	
 	
 	
 	

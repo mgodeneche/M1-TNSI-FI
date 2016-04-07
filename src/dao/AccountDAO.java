@@ -1,28 +1,41 @@
 package dao;
 
-import com.mongodb.DBCollection;
-import com.mongodb.client.MongoDatabase;
+import org.bson.Document;
 
-import digester.Account;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.mongodb.BasicDBObject;
+import com.mongodb.DBCollection;
+import com.mongodb.DBObject;
+import com.mongodb.client.FindIterable;
+import com.mongodb.client.MongoCollection;
+
 import dto.AccountDTO;
 import utils.Utils;
 
 public class AccountDAO {
 
-	public static void accountPersist(AccountDTO accountDTO){
-		MongoDatabase db = Utils.getDbConnect();
-	    
-	    
-	    DBCollection accountDataCollection = null ;
-	    accountDataCollection = (DBCollection) db.getCollection(AccountDTO.COLLECTION_NAME);
+	public static FindIterable<Document> accountPersist(AccountDTO accountDTO){
+		MongoCollection<Document> accountDataCollection = Utils.getDbCollection();
+		GsonBuilder gson = new GsonBuilder();
+	    gson.enableComplexMapKeySerialization();
+		String data = gson.create().toJson(accountDTO);
+	    accountDataCollection.insertOne(new Document("account",data));
 
-	    accountDataCollection.save(accountDTO);
-
-	    System.err.println(accountDataCollection.findOne());
+	   return accountDataCollection.find();
 	}
-	public static Account getAccountByCustomerID(long customerId){
-		//executer un findOne
+	
+	public static AccountDTO getAccountByCustomerID(long customerId){
+		MongoCollection<Document> accountDataCollection = Utils.getDbCollection();
+	
+        DBObject query = new BasicDBObject("customerId", customerId);
 		return null;
+ 
+        // resultant document fetched by satisfying the criteria
+       // DBObject accountDataDBObject = accountDataCollection.find(query);
+        //return (AccountDTO) accountDataDBObject;
+        
 	}
+	
 
 }

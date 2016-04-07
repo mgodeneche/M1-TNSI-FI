@@ -3,8 +3,16 @@ package utils;
 import java.io.DataInputStream;
 import java.io.File;
 import java.io.FileInputStream;
+
+import org.bson.Document;
+
+import com.mongodb.DBCollection;
 import com.mongodb.MongoClient;
+import com.mongodb.MongoClientURI;
+import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
+
+import dto.AccountDTO;
 
 public abstract class Utils {
 
@@ -28,10 +36,18 @@ public abstract class Utils {
 		}
 		return null;
 	}
+	
 	@SuppressWarnings("resource")
 	public static MongoDatabase getDbConnect(){
-		 return new MongoClient(MONGO_URI).getDatabase("tnsi");
+		MongoClientURI uri = new MongoClientURI(MONGO_URI);
+		 return new MongoClient(uri).getDatabase("tnsi-fi");
 		
+	}
+	public static MongoCollection<Document> getDbCollection() {
+		MongoDatabase db = Utils.getDbConnect();
+	    MongoCollection<Document> accountDataCollection = null ;
+	    accountDataCollection = db.getCollection(AccountDTO.COLLECTION_NAME);
+		return accountDataCollection;
 	}
 
 }

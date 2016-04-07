@@ -1,6 +1,9 @@
-/dao/
+/.gitignore
+/META-INF/
 /utils/
-/test/
+/dao/
 /services/
-/dto/
+/test/
 /digester/
+/dto/
+/mappings/

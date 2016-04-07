@@ -15,8 +15,7 @@ public class DigesterTest {
 	@Before 
 	public void initialize() {
 		File xml = new File("ressources/transaction.xml");
-		TransactionDigester transactionDigester = new TransactionDigester();
-		transaction = transactionDigester.digest(xml);
+		transaction = TransactionDigester.digestXML(xml);
 	   }
 	
 	@Test
