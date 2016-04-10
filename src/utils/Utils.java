@@ -5,9 +5,11 @@ import java.io.File;
 import java.io.FileInputStream;
 
 import org.bson.Document;
+import org.bson.codecs.configuration.CodecRegistries;
+import org.bson.codecs.configuration.CodecRegistry;
 
-import com.mongodb.DBCollection;
 import com.mongodb.MongoClient;
+import com.mongodb.MongoClientOptions;
 import com.mongodb.MongoClientURI;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
@@ -49,5 +51,26 @@ public abstract class Utils {
 	    accountDataCollection = db.getCollection(AccountDTO.COLLECTION_NAME);
 		return accountDataCollection;
 	}
+	/*
+	public static MongoCollection<AccountDTO>  getDbCollection() {
+	    // ...................................................
+	    CodecRegistry codecRegistry = CodecRegistries.fromRegistries(
+	        CodecRegistries.fromProviders(new MyCodecProvider()),
+	        MongoClient.getDefaultCodecRegistry());
+
+	    MongoClientOptions options = MongoClientOptions
+	                                    .builder()
+	                                    .codecRegistry(codecRegistry)
+	                                    .build();
+
+	    MongoClient mongoClient = new MongoClient(MONGODB_SERVER_IP, options);
+	    // ...................................................
+
+	    MongoDatabase = db = mongoClient.getDatabase(MONGODB_SERVER_DATABASE_NAME);
+
+	    MongoCollection<AccountDTO> collection = db.getCollection(MONGODB_SERVER_COLLECTION_NAME,AccountDTO.class);
+
+	    return collection;
+	}*/
 
 }

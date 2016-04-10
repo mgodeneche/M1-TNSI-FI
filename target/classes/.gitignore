@@ -1,9 +1,4 @@
-/.gitignore
-/META-INF/
 /utils/
-/dao/
-/services/
-/test/
 /digester/
 /dto/
-/mappings/
+/services/

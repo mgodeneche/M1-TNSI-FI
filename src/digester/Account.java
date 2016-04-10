@@ -15,7 +15,7 @@ public class Account {
 		this.accountCurrency = accountCurrency;
 	}
 
-	public float getBalance() {
+	public Float getBalance() {
 		return balance;
 	}
 
