@@ -7,14 +7,8 @@ import digester.Transaction;
 public class TransactionService {
 	
 	public static Account executerTransaction(Transaction transaction){
-		Account account = AccountDAO.getAccountByCustomerID(transaction.getCustomerId());
-		if(transaction.getType()=="debit"){
-			return debiterCompte(account,transaction.getAmount());
-		}
-		if(transaction.getType()=="credit"){
-			return crediterCompte(account,transaction.getAmount());
-		}
-		return account;
+	
+		return null;
 		
 	}
 	

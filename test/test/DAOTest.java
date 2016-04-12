@@ -3,35 +3,36 @@ package test;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.mongodb.morphia.Datastore;
+import org.mongodb.morphia.Morphia;
+
+import com.mongodb.MongoClient;
+import com.mongodb.MongoClientURI;
 
 import dao.AccountDAO;
 import digester.Account;
 import digester.Customer;
-import dto.AccountDTO;
-import mappings.AccountDTODigester;
+
 
 public class DAOTest {
-	AccountDTO accountDTO;
+	Customer customer;
+	Account account;
+	private static String MONGO_URI = "mongodb://tnsi:tnsi@ds013330.mlab.com:13330";
+	private static String DATABASE_NAME ="tnsi-fi";
+	Datastore ds;
 	
 	@Before
 	public void initialize(){
-		Account account = new Account("FRkk BBBB BGGG GGCC CCCC CCCC CKK", 0, "euro");
-		Customer customer = new Customer("Jean Maurice", "Lhommedieu", 1, account);
-		this.accountDTO = new AccountDTO(account, customer);
-		System.out.println(accountDTO.toString());
+		account = new Account("FRkk BBBB BGGG GGCC CCCC CCCC CKK", 0, "euro");
+		customer = new Customer("XXXXXX", "YYYYYYY", 3, account);
+		MongoClientURI mongoClientURI = new MongoClientURI(MONGO_URI);
+		MongoClient mongoClient = new MongoClient(mongoClientURI);
+		ds = new Morphia().createDatastore(mongoClient,DATABASE_NAME); 
 	}
-	@Test
-	public void toJson(){
-		Assert.assertNotNull(AccountDTODigester.digestJSON(accountDTO));
-	}
+
 	@Test
 	public void insertionTest(){
-		Assert.assertNotNull(AccountDAO.accountPersist(accountDTO));
-	}
-	@Test
-	public void firstNameNotNull(){
-		AccountDTO dto = AccountDAO.getAccountByCustomerID(1);
-		Assert.assertNotNull(dto.getCustomerFirstName());
+		Assert.assertNotNull(AccountDAO.accountPersist(customer));
 	}
 
 }

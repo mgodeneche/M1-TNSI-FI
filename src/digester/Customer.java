@@ -1,11 +1,13 @@
 package digester;
+import org.mongodb.morphia.annotations.*;
 
+@Entity
 public class Customer {
 
 	private String firstname;
 	private String lastname;
-	private long customerId;
-	private Account account;
+	@Id private long customerId;
+	@Embedded private Account account;
 	
 	
 	

@@ -1,11 +1,11 @@
 package digester;
 
-import java.awt.List;
 import java.io.File;
 import java.util.ArrayList;
 
 import mappings.TransactionDigester;
 import services.TransactionService;
+import utils.Utils;
 
 public class Main {
 
@@ -21,6 +21,7 @@ public class Main {
 		for(Transaction transaction:transactionsQueue){
 			TransactionService.executerTransaction(transaction);
 		}
+		Utils.getDb();
 				
 	}
 
