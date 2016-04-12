@@ -7,6 +7,8 @@ import org.bson.codecs.DecoderContext;
 import org.bson.codecs.EncoderContext;
 import org.bson.codecs.configuration.CodecRegistry;
 
+import digester.Account;
+import digester.Customer;
 import dto.AccountDTO;
 
 // the Codec extends two interfaces: Encoder<T>, Decoder<T>
@@ -35,15 +37,19 @@ class MyAccountDTOImpCodec implements Codec<AccountDTO> {
 
     public AccountDTO decode(BsonReader reader, DecoderContext decoderContext) {
         reader.readStartDocument();
-        String id = reader.readString("IBAN");
+        String iBAN = reader.readString("IBAN");
         String firstName = reader.readString("customerFirstName");
         String lastName = reader.readString("customerLastName");
+        double balance = reader.readDouble("balance");
+        String currency = reader.readString("currency");
+        long customerId = reader.readInt64("customerId");
+        
+        
+        
         reader.readEndDocument();
-
-        AccountDTO doc = new AccountDTO();
-        doc.setIBAN(id);
-        doc.setCustomerFirstName(firstName);
-        doc.setCustomerFirstName(lastName);
+        Account account = new Account(iBAN, balance, currency);
+        Customer customer = new Customer(firstName, lastName, customerId, account);
+        AccountDTO doc = new AccountDTO(account, customer);
         return doc;
     }
 

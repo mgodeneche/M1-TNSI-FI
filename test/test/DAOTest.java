@@ -24,9 +24,14 @@ public class DAOTest {
 	public void toJson(){
 		Assert.assertNotNull(AccountDTODigester.digestJSON(accountDTO));
 	}
-	/*@Test
+	@Test
 	public void insertionTest(){
 		Assert.assertNotNull(AccountDAO.accountPersist(accountDTO));
-	}*/
+	}
+	@Test
+	public void firstNameNotNull(){
+		AccountDTO dto = AccountDAO.getAccountByCustomerID(1);
+		Assert.assertNotNull(dto.getCustomerFirstName());
+	}
 
 }

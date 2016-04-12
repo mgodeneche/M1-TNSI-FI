@@ -6,7 +6,7 @@ import digester.Account;
 import digester.Customer;
 import com.mongodb.BasicDBObject;
 
-public class AccountDTO extends BasicDBObject implements Serializable{
+public class AccountDTO implements Serializable{
 
 	/**
 	 * 
@@ -17,7 +17,7 @@ public class AccountDTO extends BasicDBObject implements Serializable{
 	private String customerLastName;
 	private long customerId;
 	private String IBAN;
-	private float balance;
+	private double balance;
 	private String accountCurrency;
 	
 	
@@ -57,10 +57,10 @@ public class AccountDTO extends BasicDBObject implements Serializable{
 	public void setIBAN(String iBAN) {
 		IBAN = iBAN;
 	}
-	public float getBalance() {
+	public double getBalance() {
 		return balance;
 	}
-	public void setBalance(float balance) {
+	public void setBalance(double balance) {
 		this.balance = balance;
 	}
 	public String getCustomerFirstName() {

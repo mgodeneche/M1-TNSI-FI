@@ -21,7 +21,6 @@ public class AccountDAO {
 	    gson.enableComplexMapKeySerialization();
 		String data = gson.create().toJson(accountDTO);
 	    accountDataCollection.insertOne(new Document("account",data));
-
 	   return accountDataCollection.find();
 	}
 	

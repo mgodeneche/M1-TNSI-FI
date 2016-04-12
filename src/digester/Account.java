@@ -3,23 +3,23 @@ package digester;
 public class Account {
 	
 	private String  IBAN;
-	private float balance;
+	private double balance;
 	private String accountCurrency;
 
 
 	
-	public Account(String iBAN, float balance, String accountCurrency) {
+	public Account(String iBAN, double balance, String accountCurrency) {
 		super();
 		IBAN = iBAN;
 		this.balance = balance;
 		this.accountCurrency = accountCurrency;
 	}
 
-	public Float getBalance() {
+	public double getBalance() {
 		return balance;
 	}
 
-	public void setBalance(float balance) {
+	public void setBalance(double balance) {
 		this.balance = balance;
 	}
 
