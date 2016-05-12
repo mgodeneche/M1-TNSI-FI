@@ -10,9 +10,6 @@ public class Account {
 	private String accountCurrency;
 
 
-	public Account (){
-		
-	}
 	
 	public Account(String iBAN, double balance, String accountCurrency) {
 		super();
